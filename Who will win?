@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int calcstime(int total,int findnum)
+{
+    int l = 0;
+    int r = total-1;
+    int stime = 0;
+    if(r>=1)
+    {
+        int mid = (l + r)/2;
+        if(mid == findnum)
+          return stime;
+        if(mid+1 > findnum)
+          r = mid-1;
+        else
+          r = mid + 1;
+    stime++;
+          
+    }
+    return stime;
+}
+int main()
+{
+	//code
+	int T,M,N,G,S;
+	int g,s;
+	scanf("%d",&T);
+	while(T--)
+	{
+	    scanf("%d%d%d%d",&N,&M,&G,&S);
+	    g = G*M;
+	    s = S * calcstime(N,M);
+	    if(g > s)
+	      printf("1\n");
+	    if(s > g)
+	      printf("2\n");
+	    else 
+	      printf("3\n");
+	}
+}
